@@ -1,3 +1,6 @@
-print int(-6.3 + 1)
-print int(-6 -1)
-print int(5.3)
+n = 5
+for i in range(0,12):
+    n = n*2
+    n -= 3
+
+print n

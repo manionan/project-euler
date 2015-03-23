@@ -1,0 +1,32 @@
+   #do frontways
+    movement_front = [1,dim]
+
+    min_sum_front = 639237
+    half_sum_front = {}
+    for case in range(0,100000):
+        new_location = 0
+        moves_each = [0,0]
+        sum_numbers = 0
+        choice = -1
+        while (moves_each[0]<dim-1 or moves_each[1]<dim-1) and (moves_each[0]+moves_each[1])<dim-1: #last part inforces halving
+            choice = -1
+            if(moves_each[0]<dim-1 and moves_each[1]<dim-1):
+                choice = random.randrange(0,2)
+            elif(moves_each[0]<dim-1):
+                choice = 0
+            elif(moves_each[1]<dim-1):
+                choice = 1
+            if choice==-1:
+                print "invalid choice!"
+            moves_each[choice]+=1
+            sum_numbers += int(numbers[new_location])
+            new_location += movement_front[choice]
+            if sum_numbers > 639237:
+                break
+            #print "sum moves: ",new_location
+            #print "next number: ", int(numbers[new_location])
+            #print "sum_numbers: ", sum_numbers
+        moves_each[choice] -=1
+        half_sum_front[moves_each[0],moves_each[1]] = sum_numbers
+        if sum_numbers < min_sum_front:
+            min_sum_front = sum_numbers
