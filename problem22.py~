@@ -1,0 +1,8 @@
+names_list = []
+
+f = open("p022_names.txt","rU")
+
+for name in f:
+    names_list.append(name)
+
+print names_list

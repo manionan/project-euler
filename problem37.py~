@@ -1,0 +1,37 @@
+from problem7 import *
+
+def count_digits(n):
+    n_digits = 0
+
+    while n > 0:
+        n /= 10
+        n_digits += 1
+
+    return n_digits
+
+def remove_left(number,n):
+    n_digits = count_digits(number)
+    rem = number / 10**(n_digits - n)
+    rem *= 10**(n_digits - n)
+    print rem
+    new = number - rem
+    return number
+
+print remove_left(12345,2)
+
+primes = list_primes(11,1000000)
+
+rev_primes = primes.reverse()
+
+l_to_r = []
+for r in rev_primes:
+    n_digits = count_digits(r)
+    candidate = []
+    is_prime = []
+    for i in range(0,n_digits): is_prime.append(False)
+    
+    for p in primes:
+        
+        if is_prime[n_digits - 1] == True:
+            l_to_r.append(r)
+            break

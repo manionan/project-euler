@@ -1,0 +1,22 @@
+#!/usr/bin/python
+
+import sys, math
+
+def main(number, max_pow):
+    pow_list = []
+    num = int(number)
+    i = int(max_pow)
+    while num > 0:
+        if i < 0:
+            break
+        if 2**i <= num:
+            num -= 2**i
+            pow_list.append(i)
+            i -= 1
+        else:
+            i -= 1
+
+    print pow_list
+
+if __name__ == "__main__":
+    main(sys.argv[1],sys.argv[2])

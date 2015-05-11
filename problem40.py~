@@ -1,0 +1,20 @@
+def list_digits(n):
+    listy = []
+    n_digits = 0
+    m = n
+    while m > 0:
+        m /= 10
+        n_digits += 1
+
+    print n_digits
+
+list_digits(1)
+list_digits(111)
+list_digits(12345)
+
+count = 0
+n = 1
+while count < 10**6:
+    
+    count += 1
+    n += 1

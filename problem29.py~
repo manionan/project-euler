@@ -1,0 +1,6 @@
+from problem7 import *
+primes = list_primes(2,102)
+print primes
+n_terms = 0
+for a in range(2,101):
+    

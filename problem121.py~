@@ -1,0 +1,58 @@
+import math
+
+n_rounds = 4
+n_min = int(math.ceil(n_rounds/2.0))
+
+
+probs = []
+
+term = 1
+for i in range(0,n_rounds):
+    #term *= 1.0/(2.0 + i)
+    term *= (2 + i)
+    probs.append(term)
+
+print probs
+
+product_enum = []
+
+def rec_loop(my_list, lim, depth, n_loop, product):
+
+
+    if n_loop > 0 and depth < lim:
+        #delve deeper
+        for i in range(depth,lim):
+            new_product = product * my_list[i] 
+            #print new_product, "at loop", n_loop
+            #print "rec_loop(my_list", lim, i+1, n_loop - 1, new_product, ")"
+            rec_loop(my_list, lim, i + 1, n_loop - 1, new_product)
+
+    elif n_loop == 0:
+        product_enum.append(product)
+        #print "Got product: ", product, "with depth: ", depth
+        #print "######"
+    
+
+
+for n in range(2,3):
+    pass
+    product = 1.0
+    rec_loop(probs, 4, 0, n, product)
+print product_enum
+   
+summy = 0
+for item in product_enum:
+    summy += item
+
+print summy
+print 11.0/120.0 
+print (2.0**4 * 3.0**3 * 4.0**2 * 5.0)
+
+print "###choose3: "
+print (2.0**3 * 3.0**2 * 4.0)
+print (2.0**3 * 3.0**2 * 4.0 * 5.0)
+print (2.0**3 * 3.0**2 * 4.0**2 * 5.0)
+print (2.0**3 * 3.0**3 * 4.0**2 * 5.0)
+
+print "##choose2:"
+print 
